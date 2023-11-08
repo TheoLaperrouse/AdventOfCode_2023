@@ -1,0 +1,18 @@
+{
+    "name": "bun-template",
+    "version": "1.0.0",
+    "description": "Template pour créer des projets avec Bun",
+    "scripts": {
+        "start": "bun run index.js"
+    },
+    "devDependencies": {
+        "@types/benchmark": "^2.1.3",
+        "bun-types": "latest",
+        "semantic-release": "^22.0.5",
+        "eslint": "^8.53.0",
+        "prettier": "^3.0.3"
+    },
+    "peerDependencies": {
+        "typescript": "^5.0.0"
+    }
+}
