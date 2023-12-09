@@ -84,5 +84,5 @@ readLine.on('line', (line) => {
 readLine.on('close', () => {
     const result = calculateWinnings(hands, bids);
 
-    console.log('Total winnings:', result);
+    console.log('La solution est:', result);
 });

@@ -23,11 +23,7 @@ readLine.on('line', (line) => {
         const seedsInput = line.match(/[0-9]+/g).map((numberStr) => parseInt(numberStr));
         for (let i = 0; i < seedsInput.length; i += 2) {
             const [source, range] = seedsInput.slice(i, i + 2);
-            for (let seedNumber = source; seedNumber < source + range; seedNumber++) {
-                if (!seeds.includes(seedNumber)) {
-                    seeds.push(seedNumber);
-                }
-            }
+            seeds.push(source, source + range);
         }
     } else if (line.includes('map')) {
         index += 1;
@@ -40,6 +36,12 @@ readLine.on('line', (line) => {
 });
 
 readLine.on('close', () => {
+    const seedBegin = Math.min(...seeds);
+    const seedLast = Math.max(...seeds);
+    seeds = [];
+    for (let i = seedBegin; i < seedLast; i++) {
+        seeds[i] = i;
+    }
     for (const mapping of mappingArray) {
         for (let [index, seed] of seeds.entries()) {
             let newSeed = null;
